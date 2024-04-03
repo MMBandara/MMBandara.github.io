@@ -27,28 +27,28 @@ document.addEventListener("DOMContentLoaded", function() {
             const itemName = item.querySelector('.item h2').textContent;
             const itemPrice = parseFloat(item.querySelector('.price').textContent.replace('$', ''));
             const itemImage = item.querySelector('.item img').src;
-    
+
             const existingItem = cartItems.find(cartItem => cartItem.name === itemName);
             if (existingItem) {
                 existingItem.quantity++;
             } else {
                 cartItems.push({ name: itemName, price: itemPrice, quantity: 1, image: itemImage });
             }
-    
+
             cartTotal += itemPrice;
-    
+
             renderCart();
-            
+
             cartTab.scrollIntoView({ behavior: 'smooth' });
         });
     });
-    
+
 
     function renderCart() {
         const listCart = document.querySelector('.listCart');
         listCart.innerHTML = '';
         let totalItems = 0; // total item count
-        
+
         cartItems.forEach(function(cartItem, index) {
             if (cartItem.quantity > 0) {
                 totalItems += cartItem.quantity; // increment totalItems by quantity of each item
@@ -66,10 +66,10 @@ document.addEventListener("DOMContentLoaded", function() {
                         </div>
                     </div>
                 `;
-    
+
                 const minusButton = newItem.querySelector('.minus');
                 const plusButton = newItem.querySelector('.plus');
-    
+
                 minusButton.addEventListener('click', function() {
                     if (cartItem.quantity > 1) {
                         cartItem.quantity--;
@@ -79,12 +79,12 @@ document.addEventListener("DOMContentLoaded", function() {
                         renderCart();
                     }
                 });
-    
+
                 plusButton.addEventListener('click', function() {
                     cartItem.quantity++;
                     renderCart();
                 });
-    
+
                 listCart.appendChild(newItem);
             } else {
                 cartItems.splice(index, 1);
@@ -120,24 +120,26 @@ document.addEventListener("DOMContentLoaded", function() {
     const checkoutForm = document.getElementById('checkoutForm');
     checkoutForm.addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent the default form submission
-        
+
         // Get form data
         const formData = new FormData(checkoutForm);
-        
+
         // You can access form fields using formData.get(fieldName)
         // For example: const name = formData.get('name');
-        
+
         // Perform further processing (e.g., sending data to server, etc.)
         // For demonstration purposes, let's log the form data to the console
         console.log("Form submitted with data:", Object.fromEntries(formData.entries()));
-        
+
         // After processing, you can reset the form if needed
         checkoutForm.reset();
-        
+
         // Additional actions (e.g., close the checkout popup, show a confirmation message, etc.)
         // For demonstration purposes, let's hide the checkout popup
         const checkoutPopup = document.getElementById('checkoutPopup');
         checkoutPopup.style.display = 'none';
+
+        // Optionally, you can redirect the user to another page
         // window.location.href = "thankyou.html";
     });
 
