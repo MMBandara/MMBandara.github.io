@@ -101,8 +101,13 @@ document.addEventListener("DOMContentLoaded", function() {
             alert("Your cart is empty. Please add items before checkout.");
             return;
         }
-
+    
         const checkoutPopup = document.getElementById('checkoutPopup');
+        if (!checkoutPopup) {
+            console.error("Element with ID 'checkoutPopup' not found.");
+            return;
+        }
+    
         checkoutPopup.style.display = 'block';
         // Populate the items and total price in the checkout form
         const checkoutItemList = document.getElementById('checkoutItemList');
@@ -115,6 +120,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const checkoutTotalPrice = document.getElementById('checkoutTotalPrice');
         checkoutTotalPrice.textContent = cartTotal.toFixed(2);
     });
+    
 
     // Form submission handling
     const checkoutForm = document.getElementById('checkoutForm');
