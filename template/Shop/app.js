@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const closeBtn = document.querySelector('.btn .close');
     const addToCartBtns = document.querySelectorAll('.addcart');
     const checkOutBtn = document.querySelector('.checkOut');
+    const itemCountSpan = document.querySelector('.icon-cart span'); // select the span tag for item count
     let cartItems = [];
     let cartTotal = 0;
 
@@ -46,9 +47,11 @@ document.addEventListener("DOMContentLoaded", function() {
     function renderCart() {
         const listCart = document.querySelector('.listCart');
         listCart.innerHTML = '';
-    
+        let totalItems = 0; // total item count
+        
         cartItems.forEach(function(cartItem, index) {
             if (cartItem.quantity > 0) {
+                totalItems += cartItem.quantity; // increment totalItems by quantity of each item
                 const newItem = document.createElement('div');
                 newItem.classList.add('item');
                 newItem.innerHTML = `
@@ -88,6 +91,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 renderCart();
             }
         });
+
+        // Update the span tag with the total item count
+        itemCountSpan.textContent = totalItems;
     }
 
     checkOutBtn.addEventListener('click', function() {
@@ -110,5 +116,29 @@ document.addEventListener("DOMContentLoaded", function() {
         checkoutTotalPrice.textContent = cartTotal.toFixed(2);
     });
 
-    // Form submission handling remains the same
+    // Form submission handling
+    const checkoutForm = document.getElementById('checkoutForm');
+    checkoutForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        
+        // Get form data
+        const formData = new FormData(checkoutForm);
+        
+        // You can access form fields using formData.get(fieldName)
+        // For example: const name = formData.get('name');
+        
+        // Perform further processing (e.g., sending data to server, etc.)
+        // For demonstration purposes, let's log the form data to the console
+        console.log("Form submitted with data:", Object.fromEntries(formData.entries()));
+        
+        // After processing, you can reset the form if needed
+        checkoutForm.reset();
+        
+        // Additional actions (e.g., close the checkout popup, show a confirmation message, etc.)
+        // For demonstration purposes, let's hide the checkout popup
+        const checkoutPopup = document.getElementById('checkoutPopup');
+        checkoutPopup.style.display = 'none';
+        // window.location.href = "thankyou.html";
+    });
+
 });
