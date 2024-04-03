@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #243f52, #402c47);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+  }
+  
+  .splash-container {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.8);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    animation: splash-animation 3s ease-in-out forwards;
+  }
+  
+  .splash-title {
+    text-align: center;
+    font-size: 3rem;
+    margin: 0;
+  }
+  
+  .splash-mission {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    line-height: 1.5;
+  }
+  .splash-container.hidden {
+    display: none;
+  }
+  
+  
+  @keyframes splash-animation {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px) scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  .ending-content {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.8);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  }
+  
+  .ending-content.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  
+  .ending-title {
+    font-size: 2rem;
+    margin: 0;
+  }
+  
+  .ending-message {
+    font-size: 1.2rem;
+    margin-top: 20px;
+  }
+  
+  .names-container {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+  }
+  
+  .names-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .name {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+  
+  
+  .loader {
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #514b82;
+    -webkit-mask: radial-gradient(circle closest-side at 50% 40%,#0000 94%, #000);
+    transform-origin: 50% 40%;
+    animation: l25 1.5s infinite linear;
+  }
+  @keyframes l25 {
+    100% {transform: rotate(1turn)}
+  }
