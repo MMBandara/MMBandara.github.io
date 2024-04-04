@@ -21,7 +21,7 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 25px 12%;
+    padding: 15px 12%;
 }
 
 .icon{
@@ -69,6 +69,7 @@ body {
 
 svg {
     width: 30px;
+    color: #eee;
 }
 
 header {
@@ -94,6 +95,7 @@ header .icon-cart span {
 }
 .title{
     color: #eee;
+    font-size: 20px;
 }
 
 .listProducts .item img {
@@ -238,6 +240,24 @@ body .showcart .container {
 
 .details > * {
     display: inline-block;
-    margin-right: 10px; /* Adjust as needed */
+    margin-right: 10px;
+}
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    padding-top: 5px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    left:0;
+    right: 0;
+    box-sizing: border-box;
+    border-top: 2px solid #fff;
+}
+.footer p {
+    font-family: "Arial";
+    margin-top: 10px;
+    font-size: 16px;
 }
 
