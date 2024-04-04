@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header{
+    padding: 2% 10px;
+    background-color: rgb(50, 49, 49);
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+}
+
+.profile{
+    padding: 1% 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+
+.profile p{
+    padding: 5px 0;
+}
+
+a{
+    text-decoration: underline;
+    color: white;
+}
+
+.container{
+    padding: 1% 10px;
+    color: white;
+    background-color: rgb(50, 49, 49);
+    font-family: "Tahoma";
+}
+
+.container div{
+    padding: 30px 0;
+}
+
+.container div p{
+    padding: 10px 150px;
+    letter-spacing: 1px;
+}
